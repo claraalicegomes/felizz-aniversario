@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o meu amor, Daniel 💙</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #d4e8f9 0%, #eaf3fa 100%); /* Azul pastel */
+            font-family: 'Quicksand', sans-serif;
+            color: #334e68;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Tela Inicial de Clique */
+        #tela-entrada {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #d4e8f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: opacity 1s ease;
+        }
+
+        .botao-abrir {
+            background-color: #ffb6c1;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5);
+            transition: transform 0.2s;
+            animation: pulsar 1.5s infinite;
+        }
+
+        /* Conteúdo Principal */
+        #conteudo-principal {
+            display: none; /* Escondido até clicar no botão */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .carta {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .carta p {
+            margin-bottom: 15px;
+        }
+
+        /* Galeria de Fotos */
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px 10px 40px 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+        }
+
+        .polaroid:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        /* Botão Surpresa */
+        .botao-surpresa {
+            background-color: #8bb8d8;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 184, 216, 0.5);
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .botao-surpresa:hover {
+            background-color: #6a9ac2;
+        }
+
+        #surpresa-container {
+            display: none;
+            margin-top: 30px;
+            animation: fadeIn 1s;
+        }
+
+        #surpresa-container img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Efeito de Corações Flutuantes */
+        .coracao {
+            position: fixed;
+            bottom: -10vh;
+            font-size: 24px;
+            animation: voar 5s linear infinite;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes pulsar {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes voar {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="musica-fundo" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="tela-entrada">
+        <h1 style="color: #6a9ac2;">Oi, meu amor...</h1>
+        <button class="botao-abrir" onclick="abrirPresente()">Clique para abrir seu presente 🎁</button>
+    </div>
+
+    <div id="conteudo-principal">
+        <h1>Feliz aniversário, meu amor! ❤️</h1>
+        
+        <div class="carta">
+            <p>Hoje o meu coração aperta um pouco mais por causa da distância. Se eu pudesse fazer um único pedido para o dia de hoje, seria o de apagar cada quilômetro que nos separa só para conseguir estar aí do seu lado. Eu queria tanto, mas tanto, te acordar com um beijo, te dar um abraço bem apertado e passar cada segundo dessa data tão importante celebrando a pessoa maravilhosa que você é.</p>
+            <p>Mesmo longe, quero que você sinta todo o meu amor e eu aí do seu ladinho. O que a gente vive quando está junto me dá a certeza absoluta de que o nosso encontro foi um verdadeiro presente do destino. Você trouxe um significado para a minha vida que eu nem sabia que existia, e essa nossa paixão só cresce a cada dia, provando que conexão de verdade não se apaga com a distância.</p>
+            <p>Que o seu novo ano traga muita luz, paz e a realização dos seus maiores sonhos. Parabéns, meu lindo. Eu tô aqui, sempre junto a você, torcendo e vibrando por cada conquista sua. Eu te amo meu amor! Aproveita seu dia viuu</p>
+        </div>
+
+        <h2>Nossas Memórias ✨</h2>
+        
+        <div class="galeria">
+            <div class="polaroid"><img src="https://i.postimg.cc/7LBjcJmh/1e84b5c7-dab7-4669-8628-14713cb2cf26.jpg" alt="Foto 1"></div>
+            <div class="polaroid"><img src="https://i.postimg.cc/g0M15LNw/3578179d-a03b-41ef-b023-969e45151b69.jpg" alt="Foto 2"></div>
+            <div class="polaroid"><img src="https://i.postimg.cc/Xv2thBQ0/4f1bea94-fc7a-4650-81a7-c11ceef06ae0.jpg" alt="Foto 3"></div>
+            <div class="polaroid"><img src="https://i.postimg.cc/FKPwqkDR/5e32c145-0949-49b0-b6a1-bdd681c72e5d.jpg" alt="Foto 4"></div>
+            <div class="polaroid"><img src="https://i.postimg.cc/FR7wQFBk/b3369645-75aa-4af9-a24d-35005544942d.jpg" alt="Foto 5"></div>
+            <div class="polaroid"><img src="https://i.postimg.cc/QM6vPK0F/fe0bcb9c-a68e-4b37-b4c1-7fb98cc724ed.jpg" alt="Foto 6"></div>
+        </div>
+
+        <button class="botao-surpresa" onclick="mostrarSurpresa()">Eu tenho mais uma surpresinha para você... 👀</button>
+
+        <div id="surpresa-container">
+            <h2 style="font-size: 2rem;">Fiz esse desenho pra você! 🎨</h2>
+            <img src="https://i.postimg.cc/c4M928Jq/dfee5470-6ad2-4e3e-921d-e50e1e945374.jpg" alt="Desenho Surpresa">
+        </div>
+    </div>
+
+    <script>
+        function abrirPresente() {
+            // Toca a música
+            document.getElementById('musica-fundo').play();
+            
+            // Esconde a tela inicial e mostra o site
+            document.getElementById('tela-entrada').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('tela-entrada').style.display = 'none';
+                document.getElementById('conteudo-principal').style.display = 'block';
+                criarCoracoes(); // Começa a chover corações
+            }, 1000);
+        }
+
+        function mostrarSurpresa() {
+            document.getElementById('surpresa-container').style.display = 'block';
+            // Rola a página para baixo para ele ver o desenho
+            setTimeout(() => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }, 100);
+        }
+
+        // Função para criar coraçõezinhos flutuantes azuis e rosas
+        function criarCoracoes() {
+            setInterval(() => {
+                const coracao = document.createElement('div');
+                coracao.classList.add('coracao');
+                
+                // Sorteia se o coração vai ser azul ou rosa (pra combinar)
+                const cores = ['💙', '🩵', '🤍', '💖', '✨'];
+                coracao.innerText = cores[Math.floor(Math.random() * cores.length)];
+                
+                coracao.style.left = Math.random() * 100 + 'vw';
+                coracao.style.animationDuration = Math.random() * 3 + 4 + 's'; // Tempo de voo
+                coracao.style.fontSize = Math.random() * 15 + 15 + 'px'; // Tamanho
+                
+                document.body.appendChild(coracao);
+
+                // Remove o coração depois que ele sai da tela
+                setTimeout(() => {
+                    coracao.remove();
+                }, 6000);
+            }, 300); // Cria um novo coração a cada 0.3s
+        }
+    </script>
+</body>
+</html>
